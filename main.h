@@ -2,6 +2,7 @@
 #define MAIN_H
 
 #include <stddef.h>
+#include <stdarg.h>
 
 /**
  * _printf - This function prints a formatted string to the standard output.
