@@ -48,6 +48,9 @@ void print_arg(char specifier, va_list args, char *buffer, int *buf_index)
 		break;
 	default:
 		if (specifier != ' ' && specifier != '\0')
+		{
+			buffer[(*buf_index)++] = '%';
 			buffer[(*buf_index)++] = specifier;
+		}
 	}
 }
