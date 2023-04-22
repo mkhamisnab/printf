@@ -2,6 +2,7 @@
 
 #include <stdarg.h>
 #include <stdlib.h>
+#include <stdio.h>
 /**
  * print_arg - This function handles the formatting of a single argument.
  * @specifier: The format specifier character (e.g. 'c', 's', '%', 'b').
@@ -12,8 +13,9 @@
  */
 void print_arg(char specifier, va_list args, char *buffer, int *buf_index)
 {
-	int j, number;
+	int j, number, len;
 	char *binary, *string, character;
+	char *adr = NULL, *temp_adr_buff;
 
 	switch (specifier)
 	{
@@ -35,6 +37,14 @@ void print_arg(char specifier, va_list args, char *buffer, int *buf_index)
 		for (j = 0; binary[j] != '\0'; j++)
 			buffer[(*buf_index)++] = binary[j];
 		free(binary);
+		break;
+	case 'p':
+		adr = va_arg(args, void *);
+		temp_adr_buff = (char *)malloc(sizeof(adr) * 2 + 1);
+		sprintf(temp_adr_buff, "%p", adr);
+		for (j = 0; temp_adr_buff[j] != '\0'; j++)
+			buffer[(*buf_index)++] = temp_adr_buff[j];
+		free(temp_adr_buff);
 		break;
 	}
 }
