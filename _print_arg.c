@@ -13,7 +13,7 @@
  */
 void print_arg(char specifier, va_list args, char *buffer, int *buf_index)
 {
-	int j, number, len;
+	int j, number;
 	char *binary, *string, character;
 	char *adr = NULL, *temp_adr_buff;
 
