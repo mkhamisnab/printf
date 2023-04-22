@@ -46,5 +46,8 @@ void print_arg(char specifier, va_list args, char *buffer, int *buf_index)
 			buffer[(*buf_index)++] = temp_adr_buff[j];
 		free(temp_adr_buff);
 		break;
+	default:
+		if (specifier != ' ' && specifier != '\0')
+			buffer[(*buf_index)++] = specifier;
 	}
 }
