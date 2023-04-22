@@ -45,7 +45,7 @@ int _printf(const char *format, ...)
 		else
 			buffer[buf_index++] = format[i];
 
-		if (buf_index >= sizeof(buffer))
+		if (buf_index >= 1024)
 		{
 			count += write(STDOUT_FILENO, buffer, buf_index);
 			buf_index = 0;
@@ -55,5 +55,5 @@ int _printf(const char *format, ...)
 	if (buf_index > 0)
 		count += write(STDOUT_FILENO, buffer, buf_index);
 	va_end(args);
-	return count;
+	return (count);
 }
