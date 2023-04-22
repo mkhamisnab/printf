@@ -15,6 +15,20 @@ int _printf(const char *format, ...);
  * @str: string
  * Return: number of characters in the string
  */
-size_t _strlen(const char *str);
+int _strlen(const char *str);
+
+/**
+ * rev_string -  prints a string, in reverse, followed by a new line
+ * @str: pointer to a string
+ * Return: void
+ */
+void rev_string(char *str);
+
+/**
+ * cal_binary -  calculates binary of a number
+ * @num: number
+ * Return: binary
+ */
+char *cal_binary(unsigned int num);
 
 #endif

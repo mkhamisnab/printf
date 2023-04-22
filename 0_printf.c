@@ -1,5 +1,8 @@
+#include "main.h"
+
 #include <stdarg.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 /**
  * _printf - This function prints a formatted string to the standard output.
@@ -10,8 +13,9 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int i = 0, j;
+	int i = 0, j, number;
 	int count = 0;
+	char *binary;
 	char *string;
 	char character, specifier;
 	char buffer[1024];
@@ -39,6 +43,13 @@ int _printf(const char *format, ...)
 				break;
 			case '%':
 				buffer[buf_index++] = '%';
+				break;
+			case 'b':
+				number = va_arg(args, int);
+				binary = cal_binary(number);
+				for (j = 0; binary[j] != '\0'; j++)
+					buffer[buf_index++] = binary[j];
+				free(binary);
 				break;
 			}
 		}

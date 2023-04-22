@@ -9,7 +9,7 @@ size_t _strlen(const char *str)
 {
 	int world_length, i;
 
-	while (str != NULL && str[i] != '\n')
+	while (str != NULL && str[i] != '\0')
 	{
 		world_length++;
 		i++;
