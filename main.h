@@ -31,4 +31,14 @@ void rev_string(char *str);
  */
 char *cal_binary(unsigned int num);
 
+/**
+ * print_arg - This function handles the formatting of a single argument.
+ * @specifier: The format specifier character (e.g. 'c', 's', '%', 'b').
+ * @args: The va_list of arguments to format.
+ * @buffer: The buffer to write the formatted output to.
+ * @buf_index: A pointer to the current index in the buffer.
+ * Return: None
+ */
+void print_arg(char specifier, va_list args, char *buffer, int *buf_index);
+
 #endif
