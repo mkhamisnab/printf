@@ -25,6 +25,6 @@ char *cal_binary(unsigned int num)
 	}
 	binary[i++] = '\0';
 	rev_string(binary);
-	
+
 	return (binary);
 }
