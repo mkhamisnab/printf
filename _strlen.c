@@ -5,14 +5,17 @@
  * @str: string
  * Return: number of characters in the string
  */
-size_t _strlen(const char *str)
+int  _strlen(const char *str)
 {
+
 	int world_length, i;
 
 	while (str != NULL && str[i] != '\0')
 	{
+
 		world_length++;
 		i++;
 	}
+
 	return (world_length);
 }
