@@ -4,6 +4,7 @@
 #include <stddef.h>
 #include <stdarg.h>
 
+#define UNUSED(x) (void)(x)
 /**
  * _printf - This function prints a formatted string to the standard output.
  * @format: A string containing zero or more format specifiers.
@@ -26,13 +27,6 @@ int _strlen(const char *str);
 void rev_string(char *str);
 
 /**
- * cal_binary -  calculates binary of a number
- * @num: number
- * Return: binary
- */
-char *cal_binary(unsigned int num);
-
-/**
  * print_arg - This function handles the formatting of a single argument.
  * @specifier: The format specifier character (e.g. 'c', 's', '%', 'b').
  * @args: The va_list of arguments to format.
@@ -41,5 +35,29 @@ char *cal_binary(unsigned int num);
  * Return: None
  */
 void print_arg(char specifier, va_list args, char *buffer, int *buf_index);
+
+/**
+ * struct format - Struct
+ *
+ * @specifier: conversion specifier.
+ * @print_func: The associated function.
+ */
+struct format
+{
+	char specifier;
+	void (*print_func)(va_list args, char *buffer, int *buf_index);
+};
+
+/**
+ * fmt_t - Typedef for format
+ */
+typedef struct format fmt_t;
+
+void print_char(va_list args, char *buffer, int *buf_index);
+void print_string(va_list args, char *buffer, int *buf_index);
+void print_percent(va_list args, char *buffer, int *buf_index);
+void print_binary(va_list args, char *buffer, int *buf_index);
+
+extern fmt_t fmt_types[];
 
 #endif
