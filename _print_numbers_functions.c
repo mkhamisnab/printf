@@ -44,10 +44,15 @@ void print_binary(va_list args, char *buffer, int *buf_index)
 	UNUSED(buf_index);
 	
 	n = va_arg(args, unsigned int);
+	if (!n)
+	{
+		write(1, "(nil)", 5);
+		return;
+	}
 	m = 2147483648UL;
 	a[0] = n / m;
 	i = 1;
-    while (i < 32)
+	while (i < 32)
 	{
 		m /= 2;
 		a[i] = (n / m) % 2;
