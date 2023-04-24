@@ -9,6 +9,7 @@
 void print_unsigned(va_list args, char *buffer, int *buf_index)
 {
 	unsigned int num = va_arg(args, unsigned int);
+
 	print_unsigned_integer(num, 10, buffer, buf_index);
 }
 /**
@@ -47,16 +48,17 @@ void print_hex_upper(va_list args, char *buffer, int *buf_index)
  *
  * Return: void
  */
-void print_hexa(va_list args, char map_to[], char *buffer, char flag_ch, int *buf_index)
+void print_hexa(va_list args, char map_to[],
+		char *buffer, char flag_ch, int *buf_index)
 {
 	int i;
 	unsigned int num;
-	
+
 	UNUSED(flag_ch);
-	
+
 	i = BUFFER_SIZE - 2;
 	num = va_arg(args, unsigned int);
-	
+
 	if (num == 0)
 		buffer[i--] = '0';
 	buffer[BUFFER_SIZE - 1] = '\0';
@@ -65,7 +67,6 @@ void print_hexa(va_list args, char map_to[], char *buffer, char flag_ch, int *bu
 		buffer[i--] = map_to[num % 16];
 		num /= 16;
 	}
-	
 	for (i = i + 1; i < BUFFER_SIZE - 1; i++)
 	{
 		buffer[*buf_index] = buffer[i];
