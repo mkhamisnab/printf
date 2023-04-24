@@ -14,7 +14,7 @@
 void print_char(va_list args, char *buffer, int *buf_index)
 {
 	char c;
-	
+
 	c = va_arg(args, int);
 	buffer[(*buf_index)++] = c;
 }
@@ -31,11 +31,12 @@ void print_string(va_list args, char *buffer, int *buf_index)
 {
 	char *s, hex[5] = {0};
 	int high, low, ascii;
-	
+
 	s = va_arg(args, char *);
 	if (s == NULL)
 	{
 		char *nil_str = "(nil)";
+
 		while (*nil_str)
 			buffer[(*buf_index)++] = *nil_str++;
 		return;
