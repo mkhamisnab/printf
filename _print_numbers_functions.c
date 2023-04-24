@@ -16,7 +16,7 @@ void print_address(va_list args, char *buffer, int *buf_index)
 {
 	char *adr = NULL, *temp_adr_buff;
 	int j;
-	
+
 	adr = va_arg(args, void *);
 	temp_adr_buff = (char *)malloc(sizeof(adr) * 2 + 1);
 	sprintf(temp_adr_buff, "%p", adr);
@@ -38,11 +38,11 @@ void print_binary(va_list args, char *buffer, int *buf_index)
 	unsigned int n, i, sum;
 	unsigned long m;
 	unsigned int a[32];
-    int count;
-	
+	int count;
+
 	UNUSED(buffer);
 	UNUSED(buf_index);
-	
+
 	n = va_arg(args, unsigned int);
 	if (!n)
 	{
@@ -61,6 +61,7 @@ void print_binary(va_list args, char *buffer, int *buf_index)
 	for (i = 0, sum = 0, count = 0; i < 32; i++)
 	{
 		sum += a[i];
+
 		if (sum || i == 31)
 		{
 			char z = '0' + a[i];
@@ -71,7 +72,8 @@ void print_binary(va_list args, char *buffer, int *buf_index)
 }
 
 /**
- * print_unsigned_integer - Helper function to print an unsigned integer in base 8, 10, or 16
+ * print_unsigned_integer - Helper function to print an unsigned integer
+ * in base 8, 10, or 16
  * @num: number
  * @base: base
  * @buffer: A buffer to write the printed integer to
@@ -79,18 +81,19 @@ void print_binary(va_list args, char *buffer, int *buf_index)
  *
  * Return: void
  */
-void print_unsigned_integer(unsigned int num, int base, char *buffer, int *buf_index)
+void print_unsigned_integer(unsigned int num,
+		int base, char *buffer, int *buf_index)
 {
 	char digits[16] = "0123456789abcdef";
 	char result[20];
 	int digit_index = 0;
-	
+
 	if (num == 0)
 	{
 		buffer[(*buf_index)++] = '0';
 		return;
 	}
-	
+
 	while (num != 0)
 	{
 		result[digit_index++] = digits[num % base];
@@ -113,6 +116,7 @@ void print_unsigned_integer(unsigned int num, int base, char *buffer, int *buf_i
 void print_int(va_list args, char *buffer, int *buf_index)
 {
 	int num = va_arg(args, int);
+
 	if (num < 0)
 	{
 		buffer[(*buf_index)++] = '-';
@@ -132,5 +136,6 @@ void print_int(va_list args, char *buffer, int *buf_index)
 void print_octal(va_list args, char *buffer, int *buf_index)
 {
 	unsigned int num = va_arg(args, unsigned int);
+
 	print_unsigned_integer(num, 8, buffer, buf_index);
 }
