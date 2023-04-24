@@ -17,6 +17,9 @@ int _printf(const char *format, ...)
 	char buffer[1024];
 	int buf_index = 0;
 
+	if (format == NULL)
+		return (1);
+
 	va_start(args, format);
 	while (format[i] != '\0')
 	{
