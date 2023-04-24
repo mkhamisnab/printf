@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int i = 0, count = 0;
-	char buffer[1024];
+	char buffer[BUFFER_SIZE];
 	int buf_index = 0;
 
 	if (format == NULL)
@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 		}
 		else
 			buffer[buf_index++] = format[i];
-		if (buf_index >= 1024)
+		if (buf_index >= BUFFER_SIZE)
 		{
 			count += write(STDOUT_FILENO, buffer, buf_index);
 			buf_index = 0;
