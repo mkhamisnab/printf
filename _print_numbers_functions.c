@@ -18,6 +18,15 @@ void print_address(va_list args, char *buffer, int *buf_index)
 	int j;
 
 	adr = va_arg(args, void *);
+	if (adr == NULL)
+	{
+		char *nil_str = "(nil)";
+		for (j = 0; nil_str[j] != '\0'; j++)
+		{
+			buffer[(*buf_index)++] = nil_str[j];
+		}
+		return;
+	}
 	temp_adr_buff = (char *)malloc(sizeof(adr) * 2 + 1);
 	sprintf(temp_adr_buff, "%p", adr);
 	for (j = 0; temp_adr_buff[j] != '\0'; j++)
