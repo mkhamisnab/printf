@@ -1,3 +1,8 @@
+#include "main.h"
+
+#include <unistd.h>
+#include <stdio.h>
+
 /**
  * print_unsigned - Implementation of the %u format specifier
  * @args: The va_list of arguments to format.
