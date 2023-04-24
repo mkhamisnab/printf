@@ -37,8 +37,7 @@ int _printf(const char *format, ...)
 		}
 		i++;
 	}
-	if (buf_index > 0)
-		count += write(STDOUT_FILENO, buffer, buf_index);
+	
 	va_end(args);
 	return (count);
 }
