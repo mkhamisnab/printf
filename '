@@ -21,7 +21,6 @@ void print_string(va_list args, char *buffer, int *buf_index)
 
 void print_percent(va_list args, char *buffer, int *buf_index)
 {
-	UNUSED(args);
 
 	buffer[(*buf_index)++] = '%';
 }
