@@ -5,6 +5,7 @@
 #include <stdarg.h>
 
 #define UNUSED(x) (void)(x)
+#define BUFFER_SIZE 1024
 /**
  * _printf - This function prints a formatted string to the standard output.
  * @format: A string containing zero or more format specifiers.
@@ -44,20 +45,31 @@ void print_arg(char specifier, va_list args, char *buffer, int *buf_index);
  */
 struct format
 {
-	char specifier;
-	void (*print_func)(va_list args, char *buffer, int *buf_index);
+    char specifier;
+    void (*print_func)(va_list args, char *buffer, int *buf_index);
 };
 
 /**
  * fmt_t - Typedef for format
  */
 typedef struct format fmt_t;
+extern fmt_t fmt_types[];
 
 void print_char(va_list args, char *buffer, int *buf_index);
 void print_string(va_list args, char *buffer, int *buf_index);
+void print_S(va_list args, char *buffer, int *buf_index);
+
 void print_percent(va_list args, char *buffer, int *buf_index);
 void print_binary(va_list args, char *buffer, int *buf_index);
+void print_address(va_list args, char *buffer, int *buf_index);
 
-extern fmt_t fmt_types[];
+void print_int(va_list args, char *buffer, int *buf_index);
+void print_unsigned_integer(unsigned int num, int base, char *buffer, int *buf_index);
+void print_unsigned(va_list args, char *buffer, int *buf_index);
+
+void print_octal(va_list args, char *buffer, int *buf_index);
+void print_hex_lower(va_list args, char *buffer, int *buf_index);
+void print_hex_upper(va_list args, char *buffer, int *buf_index);
+void print_hexa(va_list args, char map_to[], char *buffer, char, int *buf_index);
 
 #endif
