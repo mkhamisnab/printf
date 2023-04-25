@@ -61,4 +61,5 @@ void print_hexa(va_list args, char map_to[],
 
 	UNUSED(flag_ch);
 
+	 i = BUFFER_SIZE - 2;
 }
