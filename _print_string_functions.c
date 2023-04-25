@@ -88,11 +88,12 @@ void print_reverse(va_list args, char *buffer, int *buf_index)
 {
 	char *s;
 	int len, i;
-	
+
 	s = va_arg(args, char *);
 	if (s == NULL)
 	{
 		char *nil_str = "(nil)";
+
 		while (*nil_str)
 			buffer[(*buf_index)++] = *nil_str++;
 		return;
@@ -115,14 +116,15 @@ void print_rot13(va_list args, char *buffer, int *buf_index)
 {
 	char *s;
 	int i, j;
-	
+
 	char *rot13 = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 	char *alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	
+
 	s = va_arg(args, char *);
 	if (s == NULL)
 	{
 		char *nil_str = "(nil)";
+
 		while (*nil_str)
 			buffer[(*buf_index)++] = *nil_str++;
 		return;
