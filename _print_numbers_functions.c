@@ -21,6 +21,7 @@ void print_address(va_list args, char *buffer, int *buf_index)
 	if (adr == NULL)
 	{
 		char *nil_str = "(nil)";
+
 		for (j = 0; nil_str[j] != '\0'; j++)
 		{
 			buffer[(*buf_index)++] = nil_str[j];
