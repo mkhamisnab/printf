@@ -67,3 +67,12 @@ void print_hexa(va_list args, char map_to[],
  if (num == 0)}
  buffer[i--] = '0';
  buffer[BUFFER_SIZE - 1] = '\0';
+while (num > 0)
+{
+	buffer[i--] = map_to[num % 16];
+	num /= 16;
+}
+for (i = i + 1; i < BUFFER_SIZE - 1; i++)
+{
+                  buffer[*buf_index] = buffer[i];
+                  (*buf_index)++
