@@ -45,7 +45,7 @@ void print_address(va_list args, char *buffer, int *buf_index)
 void print_binary(va_list args, char *buffer, int *buf_index)
 {
 	unsigned int n, i, sum;
-	unsigned long m;
+	unsigned int m;
 	unsigned int a[32];
 	int count;
 
@@ -58,7 +58,7 @@ void print_binary(va_list args, char *buffer, int *buf_index)
 		write(1, "(nil)", 5);
 		return;
 	}
-	m = 2147483648UL;
+	m = 2147483648;
 	a[0] = n / m;
 	i = 1;
 	while (i < 32)
