@@ -52,5 +52,5 @@ void print_hex_upper(va_list args, char *buffer, int *buf_index)
  *
  * Return: void
  */
-
+void print_hexa(va_list args, char map_to[],
 }
