@@ -58,4 +58,7 @@ void print_hexa(va_list args, char map_to[],
 {
 	int i;
 	unsigned int num;
+
+	UNUSED(flag_ch);
+
 }
