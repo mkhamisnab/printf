@@ -57,5 +57,5 @@ void print_hexa(va_list args, char map_to[],
  char *buffer, char flag_ch, int *buf_index)
 {
 	int i;
-
+	unsigned int num;
 }
