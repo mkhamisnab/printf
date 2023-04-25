@@ -15,10 +15,13 @@
 void print_arg(char specifier, va_list args, char *buffer, int *buf_index)
 {
 	int i = 0;
-
+	
 	fmt_t fmt_types[] = {
 		{'c', print_char},
 		{'s', print_string},
+		{'S', print_string},
+		{'r', print_reverse},
+		{'R', print_rot13},
 		{'%', print_percent},
 		{'d', print_int},
 		{'i', print_int},
@@ -28,7 +31,6 @@ void print_arg(char specifier, va_list args, char *buffer, int *buf_index)
 		{'x', print_hex_lower},
 		{'X', print_hex_upper},
 		{'p', print_address},
-		{'S', print_string},
 		{'\0', NULL}};
 
 	while (fmt_types[i].specifier != '\0')
