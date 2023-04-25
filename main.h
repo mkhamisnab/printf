@@ -58,6 +58,8 @@ extern fmt_t fmt_types[];
 void print_char(va_list args, char *buffer, int *buf_index);
 void print_string(va_list args, char *buffer, int *buf_index);
 void print_S(va_list args, char *buffer, int *buf_index);
+void print_reverse(va_list args, char *buffer, int *buf_index);
+void print_rot13(va_list args, char *buffer, int *buf_index);
 
 void print_percent(va_list args, char *buffer, int *buf_index);
 void print_binary(va_list args, char *buffer, int *buf_index);
