@@ -46,35 +46,11 @@ void print_hex_upper(va_list args, char *buffer, int *buf_index)
 /**
  * print_hexa - Prints an unsigned integer as a hexadecimal number
  * @args: The va_list of arguments to format.
- * @map_to: The array of characters to map hexadecimal digits to
- * @buffer: A buffer to write the printed integer to
+ * @map_to: The array of characte* @buffer: A buffer to write the printed integer to
  * @flag_ch: The flag character
  * @buf_index: A pointer to the current index of the buffer
  *
  * Return: void
  */
-void print_hexa(va_list args, char map_to[],
-		char *buffer, char flag_ch, int *buf_index)
-{
-	int i;
-	unsigned int num;
 
-	UNUSED(flag_ch);
-
-	i = BUFFER_SIZE - 2;
-	num = va_arg(args, unsigned int);
-
-	if (num == 0)
-		buffer[i--] = '0';
-	buffer[BUFFER_SIZE - 1] = '\0';
-	while (num > 0)
-	{
-		buffer[i--] = map_to[num % 16];
-		num /= 16;
-	}
-	for (i = i + 1; i < BUFFER_SIZE - 1; i++)
-	{
-		buffer[*buf_index] = buffer[i];
-		(*buf_index)++;
-	}
 }
