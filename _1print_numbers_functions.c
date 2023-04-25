@@ -63,4 +63,5 @@ void print_hexa(va_list args, char map_to[],
 
 	 i = BUFFER_SIZE - 2;
  num = va_arg(args, unsigned int);
-}
+
+ if (num == 0)}
