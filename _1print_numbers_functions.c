@@ -74,5 +74,5 @@ while (num > 0)
 }
 for (i = i + 1; i < BUFFER_SIZE - 1; i++)
 {
-                  buffer[*buf_index] = buffer[i];
+	buffer[*buf_index] = buffer[i];
                   (*buf_index)++
