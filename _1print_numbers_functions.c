@@ -64,7 +64,7 @@ void print_hexa(va_list args, char map_to[],
 	 i = BUFFER_SIZE - 2;
  num = va_arg(args, unsigned int);
 
- if (num == 0)}
+ if (num == 0)
  buffer[i--] = '0';
  buffer[BUFFER_SIZE - 1] = '\0';
 while (num > 0)
@@ -75,4 +75,6 @@ while (num > 0)
 for (i = i + 1; i < BUFFER_SIZE - 1; i++)
 {
 	buffer[*buf_index] = buffer[i];
-                  (*buf_index)++
+	(*buf_index)++
+}
+}
